@@ -1,3 +1,25 @@
 # Practical Deep Learning for Coders (fast.ai courses)
 
-These are the lecture materials from [Practical Deep Learning for Coders](http://course.fast.ai/). Two important parts of the course are  [our online forums](http://forums.fast.ai/) and [our wiki](http://wiki.fast.ai/index.php/Main_Page).  If you are encountering an error, we recommend that you first search the forums and wiki for a solution.  If you can't find the answer there, the next step is to ask your question on the forums.  See this advice on [how to ask for help](http://wiki.fast.ai/index.php/How_to_ask_for_Help) in a way that will allow others to most quickly and effectively be able to help you.  Please don't use Github Issues to ask for help debugging (many questions have already been answered in the forums).
+## Setup
+
+* Updated the ami to use 30gb ebs volume instead of default 128gb.
+* Just run `./setup/setup_t2.sh` to get t2 and if we need gpu then run `./setup/setup_p2.sh`.
+* Use `us-west-2` as the region for aws as the ami is for that region. 
+
+## Some Useful Commands
+
+* to get list of everything running. 
+
+```
+for region in `aws ec2 describe-regions --output text | cut -f3`
+do
+     echo -e "\nListing Instances in region:'$region'..."
+     aws ec2 describe-instances --region $region
+done
+```
+
+* dl_course is the password for the default notebook. 
+* Use the remove file to remove the instance. It will terminate the instance and take care of ip address and ebs volume. 
+* To start over, delete key from local machine and delete pair from aws. 
+
+
